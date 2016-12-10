@@ -34,7 +34,13 @@ public class Registrar extends User{
 		setUserName(userName);
 		setPassword(password);
 	}
-	public void addNewCourse(){
-		
+	public void addNewCourse(String name, String department, Professor teacher, int waitingListCap, int studentCap, int hours, Set<Course> allCourses){
+		allCourses.add(new Course(name, department, teacher, waitingListCap, studentCap, hours, allCourses));
+	}
+	public void registerStudentClasses(Student toBeAdded, Course courseToAdd){
+		toBeAdded.currentCourses.add(courseToAdd);
+	}
+	public void registerNewStudent(String firstName, String lastName, String userName, String password, Set<Student> allStudents){
+		allStudents.add(new Student(firstName, lastName, userName, password, allStudents));
 	}
 }
