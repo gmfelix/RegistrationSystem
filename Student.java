@@ -1,3 +1,4 @@
+package regPrototype;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -55,6 +56,7 @@ public class Student extends User{
 		}
 		return null;
 	}
+	
 	public void addCourse(Set<Course> allCourses, String courseName){
 		if(currentCourses.size() > 6){
 			System.out.println("You can't take more than 6 courses!");
