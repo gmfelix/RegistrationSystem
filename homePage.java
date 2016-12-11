@@ -29,7 +29,7 @@ import java.awt.event.KeyEvent;
 import java.util.HashSet;
 
 public class homePage extends JFrame {
-
+	private static int loginStatus = 0;
 	private JPanel contentPane;
 	private JTextField textUserName;
 	private JPasswordField textPassword;
@@ -52,28 +52,24 @@ public class homePage extends JFrame {
 	
 	private class loginButtonListener implements ActionListener{
 		public void actionPerformed (ActionEvent e){
-			HashSet<Student> students = allStudents;
+			Database userDatabase = new Database();
 			
 			String user = textUserName.getText();
 			String pass = textPassword.getText();
 			user = user.toLowerCase();
-			
+			loginStatus = User.login(userDatabase, user, pass);
 			//Validate user
-			if(user.equals("master") && pass.equals("gmPass")){
+			if(loginStatus == 3){
 				dispose();
 				new registrarHome().setVisible(true);
-			} else if(user.equals("cayub") && pass.equals("asdf")){
+			} else if(loginStatus == 1){
 				dispose();
 				new studentHome().setVisible(true);
-			} else if(user.equals("jjuarez") && pass.equals("1234")){
+			} else if(loginStatus == 2){
 				dispose();
 				new professorHome().setVisible(true);
 			} else{
 				JOptionPane.showMessageDialog(null, "Error: Wrong user name or password.");
-			}
-			
-			if(findStudent(user) != null){
-				
 			}
 		}
 	}
