@@ -11,20 +11,28 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.DropMode;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.JPasswordField;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.HashSet;
 
 public class homePage extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textUserName;
-	private JTextField textPassword;
+	private JPasswordField textPassword;
 
 	/**
 	 * Launch the application.
@@ -43,7 +51,9 @@ public class homePage extends JFrame {
 	}
 	
 	private class loginButtonListener implements ActionListener{
-		public void actionPerformed(ActionEvent e){
+		public void actionPerformed (ActionEvent e){
+			HashSet<Student> students = allStudents;
+			
 			String user = textUserName.getText();
 			String pass = textPassword.getText();
 			user = user.toLowerCase();
@@ -60,6 +70,10 @@ public class homePage extends JFrame {
 				new professorHome().setVisible(true);
 			} else{
 				JOptionPane.showMessageDialog(null, "Error: Wrong user name or password.");
+			}
+			
+			if(findStudent(user) != null){
+				
 			}
 		}
 	}
@@ -111,14 +125,14 @@ public class homePage extends JFrame {
 		lblPassword.setBounds(133, 124, 170, 23);
 		contentPane.add(lblPassword);
 		
-		textPassword = new JTextField();
-		textPassword.addMouseListener(new MouseAdapter() {
+		textPassword = new JPasswordField();
+		textPassword.addKeyListener(new KeyAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				textPassword.setText("");
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER)
+					textPassword.addActionListener(new loginButtonListener());
 			}
 		});
-		textPassword.setText("Enter password here...");
 		textPassword.setToolTipText("");
 		textPassword.setBounds(133, 158, 170, 20);
 		contentPane.add(textPassword);
