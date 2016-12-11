@@ -45,11 +45,11 @@ public class Student extends User{
 		this.hoursCompleted = 0;
 		dropsAvailable = 6;
 	}
-	public static Student findStudent(Set<Student> allStudents, int ID){
+	public static Student findStudent(Set<Student> allStudents, String userName){
 		Iterator<Student> it = allStudents.iterator();
 		while(it.hasNext()){
 			Student current = it.next();
-			if(current.getID() == ID){
+			if(current.getUserName().equals(userName)){
 				return current;
 			}
 		}
