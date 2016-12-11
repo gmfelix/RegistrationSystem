@@ -36,7 +36,11 @@ public class User {
 		return null;
 	}
 	
-	public static int login(Set<User> allUsers, String inputUsername, String inputPassword){
+	public static int login(Database userDatabase, String inputUsername, String inputPassword){
+		Set<User> allUsers = new HashSet<User>();
+		allUsers.addAll(userDatabase.allProfessors);
+		allUsers.addAll(userDatabase.allRegistrars);
+		allUsers.addAll(userDatabase.allStudents);
 		User current = findUser(allUsers, inputUsername);
 		if(current!= null){
 			if(current.getPassword() == inputPassword){
@@ -53,7 +57,5 @@ public class User {
 			}
 		}
 		return 0;
-	}
-	public void ViewClasses() {
 	}
 }
