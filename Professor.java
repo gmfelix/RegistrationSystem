@@ -39,11 +39,11 @@ public class Professor extends User	{
 		setPassword(password);
 		this.department = department;
 	}
-	public static Professor findProfessor(Set<Professor> allProfessors, int ID){
+	public static Professor findProfessor(Set<Professor> allProfessors, String userName){
 		Iterator<Professor> it = allProfessors.iterator();
 		while(it.hasNext()){
 			Professor current = it.next();
-			if(current.getID() == ID){
+			if(current.getUserName() == userName){
 				return current;
 			}
 		}
