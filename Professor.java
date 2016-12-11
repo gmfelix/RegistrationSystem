@@ -39,7 +39,7 @@ public class Professor extends User	{
 		setPassword(password);
 		this.department = department;
 	}
-	public static Professor findStudent(Set<Professor> allProfessors, int ID){
+	public static Professor findProfessor(Set<Professor> allProfessors, int ID){
 		Iterator<Professor> it = allProfessors.iterator();
 		while(it.hasNext()){
 			Professor current = it.next();
