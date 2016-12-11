@@ -14,10 +14,10 @@ public class User {
 		ID = iD;
 	}
 	public String getUserName() {
-		return userName;
+		return userName.toLowerCase();
 	}
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.userName = userName.toLowerCase();
 	}
 	public String getPassword() {
 		return password;
