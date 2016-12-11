@@ -39,6 +39,16 @@ public class Professor extends User	{
 		setPassword(password);
 		this.department = department;
 	}
+	public static Professor findStudent(Set<Professor> allProfessors, int ID){
+		Iterator<Professor> it = allProfessors.iterator();
+		while(it.hasNext()){
+			Professor current = it.next();
+			if(current.getID() == ID){
+				return current;
+			}
+		}
+		return null;
+	}
 	public void viewClasses(){
 		Iterator<Course> it = this.CoursesTaught.iterator();
 		while(it.hasNext()){
