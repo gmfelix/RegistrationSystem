@@ -1,3 +1,4 @@
+package regPrototype;
 import java.util.Random;
 import java.util.Set;
 import java.util.HashSet;
@@ -59,9 +60,9 @@ public class Professor extends User	{
 		}
 	}
 	
-	public void dropStudent(Set<Course> allCourses,Set<Student> allStudents, String courseName, int ID){
+	public void dropStudent(Set<Course> allCourses,Set<Student> allStudents, String courseName, String userName){
 		Course examinedCourse = Course.findCourse(allCourses, courseName);	
-		Student examinedStudent = Student.findStudent(allStudents, ID);
+		Student examinedStudent = Student.findStudent(allStudents, userName);
 		examinedCourse.students.remove(examinedStudent);
 	}
 	public void gradeCourses(){
