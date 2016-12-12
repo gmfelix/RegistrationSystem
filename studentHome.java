@@ -78,6 +78,7 @@ public class studentHome extends JFrame {
 		lblClasification.setBounds(10, 206, 142, 14);
 		contentPane.add(lblClasification);
 		
+		//on click, creates a new class that creates a frame of student classes
 		JButton btnViewClasses = new JButton("View Classes");
 		btnViewClasses.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -88,6 +89,7 @@ public class studentHome extends JFrame {
 		btnViewClasses.setBounds(274, 30, 122, 23);
 		contentPane.add(btnViewClasses);
 		
+		//on click, creates a alert that show the number of holds
 		JButton btnViewHolds = new JButton("View Holds");
 		btnViewHolds.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -103,6 +105,7 @@ public class studentHome extends JFrame {
 		btnViewHolds.setBounds(274, 86, 122, 23);
 		contentPane.add(btnViewHolds);
 		
+		//on click, creates a new class that creates a frame of the transcript
 		JButton btnViewTranscript = new JButton("View Transcript");
 		btnViewTranscript.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
