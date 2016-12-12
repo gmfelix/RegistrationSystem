@@ -1,0 +1,69 @@
+package regPrototype;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.border.EmptyBorder;
+
+public class ViewAllCoursesRegistrar extends JFrame {
+
+	private JPanel contentPane;
+	private DefaultListModel<String> listModel;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ViewAllCoursesRegistrar frame = new ViewAllCoursesRegistrar();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ViewAllCoursesRegistrar() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblViewStudents = new JLabel("View all courses");
+		lblViewStudents.setBounds(182, 11, 88, 14);
+		contentPane.add(lblViewStudents);
+		
+		//Gets the current list of all courses in the database
+		java.util.Iterator<Course> it = homePage.getDatabase().allCourses.iterator();
+		listModel = new DefaultListModel<String>();
+		//List headers
+		listModel.addElement("Department     CRN     Course Name     Last Name     First Name     WL Cap     WL Rem     Active     Cap     CreditHrs");
+		//Cycles through all of the elements and adds them to ListModel which will display them in a list element
+		while(it.hasNext()){
+			Course current = it.next();
+			listModel.addElement(current.toString());
+		}
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 38, 414, 212);
+		contentPane.add(scrollPane);
+		
+		JList<String> list = new JList<String>(listModel);
+		scrollPane.setViewportView(list);
+		
+	}
+
+}
