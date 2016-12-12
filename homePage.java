@@ -29,7 +29,7 @@ import java.awt.event.KeyEvent;
 import java.util.HashSet;
 
 public class homePage extends JFrame {
-	private static int loginStatus = 0;
+	private int loginStatus = 0;
 	private JPanel contentPane;
 	private JTextField textUserName;
 	private JPasswordField textPassword;
@@ -143,4 +143,3 @@ public class homePage extends JFrame {
 		btnReset.addActionListener(new resetButtonListener());
 	}
 }
-
