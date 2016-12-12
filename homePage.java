@@ -33,7 +33,7 @@ public class homePage extends JFrame {
 	private JPanel contentPane;
 	private JTextField textUserName;
 	private JPasswordField textPassword;
-
+	private static Database userDatabase = new Database();
 	/**
 	 * Launch the application.
 	 */
@@ -49,14 +49,14 @@ public class homePage extends JFrame {
 			}
 		});
 	}
-	
+	public static Database getDatabase(){
+		return userDatabase;
+	}
 	private class loginButtonListener implements ActionListener{
 		public void actionPerformed (ActionEvent e){
-			Database userDatabase = new Database();
 			userDatabase.allRegistrars.add(new Registrar("Cristian", "Ayub", "cayub", "asdf1",userDatabase.allRegistrars));
 			userDatabase.allProfessors.add(new Professor("Jesus", "Juarez", "jjuarez", "asdf2","Computer Science", userDatabase.allProfessors));
 			userDatabase.allStudents.add(new Student("Gabriel", "Felix", "gmfelix", "asdf3", userDatabase.allStudents));
-			
 			String user = textUserName.getText();
 			String pass = textPassword.getText();
 			user = user.toLowerCase();
@@ -143,3 +143,4 @@ public class homePage extends JFrame {
 		btnReset.addActionListener(new resetButtonListener());
 	}
 }
+
