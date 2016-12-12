@@ -1,3 +1,6 @@
+package regPrototype;
+
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -29,7 +32,7 @@ public class User {
 		Iterator<User> it = allUsers.iterator();
 		while(it.hasNext()){
 			User current =it.next();
-			if(current.userName == inputUsername){
+			if(current.userName.equals(inputUsername)){
 				return current;
 			}
 		}
@@ -43,13 +46,14 @@ public class User {
 		allUsers.addAll(userDatabase.allStudents);
 		User current = findUser(allUsers, inputUsername);
 		if(current!= null){
-			if(current.getPassword() == inputPassword){
+			String test = current.getClass().getName();
+			if(current.getPassword().equals(inputPassword)){
 				switch(current.getClass().getName()){
-				case "Student":
+				case "regPrototype.Student":
 					return 1;
-				case "Professor":
+				case "regPrototype.Professor":
 					return 2;
-				case "Registrar":
+				case "regPrototype.Registrar":
 					return 3;
 				default:
 					return 0;
@@ -58,4 +62,3 @@ public class User {
 		}
 		return 0;
 	}
-}
