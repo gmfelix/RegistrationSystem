@@ -4,18 +4,21 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class studentHome extends JFrame {
 
 	private JPanel contentPane;
-
 	/**
 	 * Launch the application.
 	 */
@@ -76,14 +79,37 @@ public class studentHome extends JFrame {
 		contentPane.add(lblClasification);
 		
 		JButton btnViewClasses = new JButton("View Classes");
+		btnViewClasses.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				studentClasses frame = new studentClasses();
+				frame.setVisible(true);
+			}
+		});
 		btnViewClasses.setBounds(274, 30, 122, 23);
 		contentPane.add(btnViewClasses);
 		
 		JButton btnViewHolds = new JButton("View Holds");
+		btnViewHolds.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int numHolds=0;
+				if(numHolds>0){
+					JOptionPane.showMessageDialog( btnViewHolds, "You have "+ numHolds+
+							" holds, go to your department to remove them");
+				}else{
+					JOptionPane.showMessageDialog( btnViewHolds, "You do not have holds");
+				}
+			}
+		});
 		btnViewHolds.setBounds(274, 86, 122, 23);
 		contentPane.add(btnViewHolds);
 		
 		JButton btnViewTranscript = new JButton("View Transcript");
+		btnViewTranscript.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Transcript frame = new Transcript();
+				frame.setVisible(true);
+			}
+		});
 		btnViewTranscript.setBounds(274, 142, 122, 23);
 		contentPane.add(btnViewTranscript);
 		
@@ -95,5 +121,4 @@ public class studentHome extends JFrame {
 		btnRegister.setBounds(274, 202, 122, 23);
 		contentPane.add(btnRegister);
 	}
-
 }
