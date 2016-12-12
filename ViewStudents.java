@@ -59,6 +59,7 @@ public class ViewStudents extends JFrame {
 		
 		JLabel lblViewStudents = new JLabel("View Students");
 		lblViewStudents.setBounds(182, 11, 68, 14);
+		lblViewStudents.setForeground(new Color(255, 255, 255));
 		contentPane.add(lblViewStudents);
 		
 		//Gets the current list of all students and fills the listModel for the list element, which will display all of them.
