@@ -9,6 +9,11 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
+import javax.swing.Action;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class registrarHome extends JFrame {
 
@@ -57,17 +62,55 @@ public class registrarHome extends JFrame {
 		lblDepartment.setBounds(10, 160, 131, 14);
 		contentPane.add(lblDepartment);
 		
-		JButton btnRegisterStudent = new JButton("Register Student");
+		JButton btnRegisterStudent = new JButton("RegisterStudent");
+		btnRegisterStudent.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				//Opens a new Register Student window, which displays a form that must be filled in order to add a new student
+				new RegisterStudent().setVisible(true);
+			}
+		});
 		btnRegisterStudent.setBounds(274, 30, 122, 23);
 		contentPane.add(btnRegisterStudent);
 		
-		JButton btnManageStudent = new JButton("Manage Student");
-		btnManageStudent.setBounds(274, 110, 122, 23);
-		contentPane.add(btnManageStudent);
+		JButton btnViewStudent = new JButton("View Students");
+		btnViewStudent.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent arg1) {
+				//Opens a new View Student window, which displays all of the students in the database
+				new ViewStudents().setVisible(true);
+			}
+		});
+		btnViewStudent.setBounds(274, 72, 122, 23);
+		contentPane.add(btnViewStudent);
 		
-		JButton btnLookUpClasses = new JButton("Look up Classes");
-		btnLookUpClasses.setBounds(274, 183, 122, 23);
+		JButton btnLookUpClasses = new JButton("Add classes");
+		btnLookUpClasses.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				//Opens a new addClassesRegistrar window, which contains a form in order to add a new course
+				new addClassesRegistrar().setVisible(true);
+			}
+		});
+		btnLookUpClasses.setBounds(274, 106, 122, 23);
 		contentPane.add(btnLookUpClasses);
+		
+		JButton btnNewButton = new JButton("View all classes");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//Opens a new viewAllCoursesRegistrar window, which contains all of the courses
+				new ViewAllCoursesRegistrar().setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(274, 140, 122, 23);
+		contentPane.add(btnNewButton);
 	}
 
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
 }
