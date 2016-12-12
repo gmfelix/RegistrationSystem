@@ -1,6 +1,7 @@
 package regPrototype;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Set;
@@ -46,15 +48,18 @@ public class addClassesRegistrar extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 102, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblAddANew = new JLabel("Add a new course");
+		lblAddANew.setForeground(new Color(255, 255, 255));
 		lblAddANew.setBounds(164, 11, 99, 14);
 		contentPane.add(lblAddANew);
 		
 		JLabel lblNewLabel = new JLabel("Course Name");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(10, 39, 64, 14);
 		contentPane.add(lblNewLabel);
 		
@@ -64,6 +69,7 @@ public class addClassesRegistrar extends JFrame {
 		courseName.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Department");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setBounds(127, 36, 64, 14);
 		contentPane.add(lblNewLabel_1);
 		
@@ -73,6 +79,7 @@ public class addClassesRegistrar extends JFrame {
 		department.setColumns(10);
 		
 		JLabel lblProfessor = new JLabel("Professor");
+		lblProfessor.setForeground(new Color(255, 255, 255));
 		lblProfessor.setBounds(237, 39, 53, 14);
 		contentPane.add(lblProfessor);
 		
@@ -82,6 +89,7 @@ public class addClassesRegistrar extends JFrame {
 		teacher.setColumns(10);
 		
 		JLabel lblWaitingListCap = new JLabel("Waiting List Cap");
+		lblWaitingListCap.setForeground(new Color(255, 255, 255));
 		lblWaitingListCap.setBounds(10, 95, 86, 14);
 		contentPane.add(lblWaitingListCap);
 		
@@ -91,6 +99,7 @@ public class addClassesRegistrar extends JFrame {
 		waitingListCap.setColumns(10);
 		
 		JLabel lblStudentCap = new JLabel("Student Cap");
+		lblStudentCap.setForeground(new Color(255, 255, 255));
 		lblStudentCap.setBounds(127, 95, 64, 14);
 		contentPane.add(lblStudentCap);
 		
@@ -100,6 +109,7 @@ public class addClassesRegistrar extends JFrame {
 		studentCap.setColumns(10);
 		
 		JLabel lblCreditHours = new JLabel("Credit Hours");
+		lblCreditHours.setForeground(new Color(255, 255, 255));
 		lblCreditHours.setBounds(237, 95, 79, 14);
 		contentPane.add(lblCreditHours);
 		

@@ -54,6 +54,7 @@ public class ViewStudents extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(0, 102, 153));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
